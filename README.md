@@ -1,1 +1,1 @@
-# Replica Mean Field Theory Method for Analysis of Object Manifolds
+# Replica Mean Field Theory Analysis of Object Manifolds
