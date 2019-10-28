@@ -50,3 +50,12 @@ avg_dimension = 36.17
 center_correlation = 0.00
 K = 1
 ```
+
+### Manifold datasets
+Some of the manifold datasets used in *Untangling in Invariant Speech Recognition* are available for download.
+
+The LibriSpeech word manifolds dataset is avalaible here:
+https://www.dropbox.com/sh/rh0wrsw88e77azd/AABG_YjDitkiYzfx6K45StXMa?dl=0
+
+The LibriSpeech speaker manifolds dataset is available here:
+https://www.dropbox.com/sh/wej6hq24c70irwl/AAAoQ6f6Sa5xOCSYnRDt9w4Ga?dl=0
