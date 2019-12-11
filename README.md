@@ -1,6 +1,6 @@
 # Replica Mean Field Theory Analysis of Object Manifolds
 
-Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension.  Implements the technique described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks*
+Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension.  Implements the technique described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks, (2019) BioRxiv *
 
 ## Install
 
