@@ -11,7 +11,8 @@ from mftma.utils.make_manifold_data import make_manifold_data
 from mftma.utils.activation_extractor import extractor
 
 def analyze(model, dataset, sampled_classes=50, examples_per_class=50, kappa=0, n_t=300, n_reps=1,
-        max_class=None, projection=True, projection_dimension=5000, layer_nums=None, layer_types=None, cuda=True, seed=0):
+        max_class=None, projection=True, projection_dimension=5000, layer_nums=None, layer_types=None, 
+        verbose=True, cuda=True, seed=0):
     '''
     Bundled analysis for PyTorch models and datasets. Automatically flattens all features.
 
@@ -29,6 +30,7 @@ def analyze(model, dataset, sampled_classes=50, examples_per_class=50, kappa=0, 
         layer_nums: Numbers of layers to analyze. Ex: [1, 2, 4]
         layer_types: Types of layers to use in analysis. Ex: ['Conv2d', 'Linear']. Only use if
             layer_nums isn't specified.
+        verbose: Give updates on progress (Default True)
         cuda: Whether or not to use a GPU to generate activations (Default True)
         seed: Random seed.
 
@@ -72,6 +74,8 @@ def analyze(model, dataset, sampled_classes=50, examples_per_class=50, kappa=0, 
             analyze = True
 
         if analyze:
+            if verbose:
+                print('Analyzing {}'.format(k))
             a, r, d, r0, K = manifold_analysis_corr(X, kappa, n_t, n_reps=n_reps)
             # Store the results
             results[k] = {}
