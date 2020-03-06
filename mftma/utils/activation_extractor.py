@@ -8,20 +8,23 @@ from collections import OrderedDict
 extracted_dict = OrderedDict()
 
 
-def extractor(model, data, layer_types=None):
+def extractor(model, data, layer_nums=None, layer_types=None):
     '''
     Extract model activations on the given data for the specified layers
     
     Args:
         model: Model to extract activations from
         data: Iterable containing batches of inputs to extract activations from
+        layer_nums (optional): Numbers of layers ot extract activations for. If None,
+            activations from all layers are returned.
         layer_types (optional): Names of layers to extract activations from. If None
-            activations from all layers are returned
+            activations from all layers are returned. Only use this or layer_nums
 
     Returns:
         extracted_dict: Dictionary containing extracted activations. Order matches
             the order of the given data.
     '''
+    assert (layer_nums is None or layer_types is None), 'Only specify one of layer_nums or layer_types'
     global extracted_dict
     extracted_dict = OrderedDict()
 
@@ -29,7 +32,7 @@ def extractor(model, data, layer_types=None):
     flat_children = []
     leaf_traverse(model, flat_children)
     add_layer_names(flat_children)
-    flat_children = filter_layers(flat_children, layer_types)
+    flat_children = filter_layers(flat_children, layer_types, layer_nums)
 
     # Register hooks to the found layers
     registered_hooks = register_hooks(flat_children)
@@ -102,13 +105,18 @@ def add_layer_names(flat_children):
         count += 1
 
 
-def filter_layers(flat_children, layer_types):
+def filter_layers(flat_children, layer_types, layer_nums):
     '''
     Retain layers that match layer_types
     '''
-    if layer_types is None:
+    if layer_types is None and layer_nums is None:
         filtered_children = flat_children
-    else:
+    elif layer_nums is not None:
+        filtered_children = []
+        for layer in flat_children:
+            if int(layer.layer_name.split('_')[1]) in layer_nums:
+                filtered_children.append(layer)
+    elif layer_types is not None:
         filtered_children = []
         for layer in flat_children:
             if layer._get_name() in layer_types:
