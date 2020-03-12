@@ -1,8 +1,8 @@
 # Replica Mean Field Theory Analysis of Object Manifolds
 
-Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension, implemented for the results in *[Untangling in Invariant Speech Recognition, (2019) NeurIPS](https://papers.nips.cc/paper/9583-untangling-in-invariant-speech-recognition)*.  The code implements the technique described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks, (2019) BioRxiv*. 
+Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension, implemented for the results in *[Untangling in Invariant Speech Recognition, (2019) NeurIPS](https://arxiv.org/abs/2003.01787)*.  The code implements the technique described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks, (2019) BioRxiv*. 
 
-If you find this code useful for your research, please cite [our paper](https://papers.nips.cc/paper/9583-untangling-in-invariant-speech-recognition):  
+If you find this code useful for your research, please cite [our paper](https://arxiv.org/abs/2003.01787):  
 ```
 @inproceedings{stephenson2019untangling,
   title={Untangling in Invariant Speech Recognition},
@@ -24,6 +24,8 @@ Then install the package via
 ```
 pip install -e .
 ```
+## Usage
+The following contains usage instructions for constructing data and feeding it to the analysis tool. An example analysis of a deep neural network implemented in PyTorch along with some higher level tools can be found in this [example notebook](examples/MFTMA_VGG16_example.ipynb).
 
 ### Constructing data for analysis
 Sample **P** classes from the dataset, and **M** examples from each class.  Calculate the activations at the desired layer for each example, and package them into an array of shape **(N, M)** where **N** is the dimensionality of the layer.  In the current implementation, **M** should be less than **N**.  Assemble each of these into an iterable (ex: a list like `X = [(N, M1), (N, M2),..., (N,MP)]`)
