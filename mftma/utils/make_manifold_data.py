@@ -24,7 +24,7 @@ def make_manifold_data(dataset, sampled_classes, examples_per_class, max_class=N
     if max_class is None:
         max_class = sampled_classes
     assert sampled_classes <= max_class, 'Not enough classes in the dataset'
-    assert examples_per_class * max_class < len(dataset), 'Not enough examples per class in dataset'
+    assert examples_per_class * max_class <= len(dataset), 'Not enough examples per class in dataset'
 
     # Set the seed
     np.random.seed(0)
