@@ -1,6 +1,6 @@
 # Replica Mean Field Theory Analysis of Object Manifolds
 
-Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension, implemented for the results in *[Untangling in Invariant Speech Recognition, (2019) NeurIPS](https://arxiv.org/abs/2003.01787)*.  The code implements the technique first described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks, (2019) BioRxiv*. 
+Analysis tool for measuring manifold classification capacity, manifold radius, and manifold dimension, implemented for the results in *[Untangling in Invariant Speech Recognition, (2019) NeurIPS](https://arxiv.org/abs/2003.01787)*.  The code implements the technique first described in *Classification and Geometry of General Perceptual Manifolds, (2018) Physical Review X.* and refined in *Separability and Geometry of Object Manifolds in Deep Neural Networks, (2020) Nature Communications*. 
 
 If you find this code useful for your research, please cite [our paper](https://arxiv.org/abs/2003.01787):  
 ```
